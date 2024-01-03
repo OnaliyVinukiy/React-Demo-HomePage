@@ -8,16 +8,13 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import CreateListing from "./pages/CreateListing";
 import Contact from "./pages/Contact";
-import CarouselSlider from "./components/CarouselSlider";
 
 export default function App() {
   return (
     <BrowserRouter>
       <Header />
       <Routes>
-        
-       <Route path="/" element={<CarouselSlider />} />
-        <Route path="/" element={<Home />} />
+        <Route path="/home" element={<Home />} />
         <Route path="/sign-in" element={<SignIn />} />
         <Route path="/sign-up" element={<SignUp />} />
         <Route path="/about" element={<About />} />
