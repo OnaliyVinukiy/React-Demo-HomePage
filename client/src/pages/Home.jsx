@@ -7,8 +7,9 @@ export default function Home() {
     <div>
       <div className="h-56 sm:h-64 xl:h-80 2xl:h-96">
         <Carousel slideInterval={5000}>
+          <img src="src/images/spandana.jpeg" alt="..." style={{ width: '100%', height: '100%' }} />
           <img src="src/images/emotion.png" alt="..." style={{ width: '100%', height: '100%' }} />
-          <img src="src/images/emotion.png" alt="..." style={{ width: '100%', height: '100%' }} />
+          <img src="src/images/safe.jpeg" alt="..." style={{ width: '100%', height: '100%' }} />
         </Carousel>
       </div>
     </div>
