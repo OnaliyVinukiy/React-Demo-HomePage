@@ -9,7 +9,7 @@ const Header = () => {
 
   return (
     <div>
-      <nav className="bg-gray-900 border-gray-600 dark:border-gray-600 dark:bg-gray-900">
+     <nav className="bg-gray-900 border-gray-600 dark:border-gray-600 dark:bg-gray-900">
         <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
           <a href="#" className="flex items-center space-x-3 rtl:space-x-reverse">
             <h1 className="flex flex-wrap text-xl font-bold cursor-pointer sm:text-2xl md:text-3xl">
@@ -29,12 +29,12 @@ const Header = () => {
               <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15"/>
             </svg>
           </button>
-          <div className="hidden w-full md:block md:w-auto" id="navbar-multi-level">
-            <ul className="flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-gray-900 dark:bg-gray-800 dark:border-gray-700">
-              <li>
+          <div className="hidden w-full md:block md:w-auto flex justify-center"> {/* Added flex and justify-center */}
+            <ul className="flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-gray-900 dark:bg-gray-800 dark:border-gray-700 justify-center"> {/* Added justify-center */}
+            <li className="flex items-center">
                 <a href="/" className="block py-2 px-3 text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-green-400 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-blue-500 md:dark:hover:bg-transparent dark:border-gray-700" aria-current="page">Home</a>
               </li>
-              <li>
+              <li className="flex items-center">
                 <button
                   id="dropdownNavbarLink"
                   data-dropdown-toggle="dropdownNavbar"
@@ -51,7 +51,7 @@ const Header = () => {
                 >
                   <ul className="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownLargeButton">
                     
-                    <li>
+                  <li className="flex items-center">
                       <button
                         id="doubleDropdownButton1"
                         data-dropdown-toggle="doubleDropdown1"
@@ -190,14 +190,26 @@ const Header = () => {
                   
                 </div>
               </li>
-              <li>
+              <li className="flex items-center">
                 <a href="#" className="block py-2 px-3 text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-green-400 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-blue-500 md:dark:hover:bg-transparent dark:border-gray-700">About Us</a>
               </li>
-              <li>
+              <li className="flex items-center">
                 <a href="#" className="block py-2 px-3 text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-green-400 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-blue-500 md:dark:hover:bg-transparent dark:border-gray-700">Contact Us</a>
               </li>
-              <li>
+              <li className="flex items-center">
                 <a href="#" className="block py-2 px-3 text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-green-400 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-blue-500 md:dark:hover:bg-transparent dark:border-gray-700">Nlearn</a>
+              </li>
+              <li>
+              <button type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-1.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+  Login / Signup
+</button>
+
+              </li>
+              <li>
+              <button type="button" class="flex text-sm bg-gray-800 rounded-full md:me-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600" id="user-menu-button" aria-expanded="false" data-dropdown-toggle="user-dropdown" data-dropdown-placement="bottom">
+        <span class="sr-only"></span>
+        <img class="w-8 h-8 rounded-full" src="src/images/user.svg" alt="user photo"/>
+      </button>
               </li>
             </ul>
           </div>

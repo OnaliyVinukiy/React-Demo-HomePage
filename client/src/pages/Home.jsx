@@ -1,7 +1,7 @@
 import React from "react";
 import { Carousel } from 'flowbite-react';
 import Header from "../components/Header";
-import '../index.css';
+
 export default function Home() {
   return (
     <div id="default-carousel" className="relative w-full" data-carousel="slide">
