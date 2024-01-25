@@ -199,25 +199,25 @@ const Header = () => {
                 </div>
               </li>
               <li className="flex items-center">
-                <a href="#" className="block py-2 px-3 text-black md:text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-green-400 md:p-0 dark:text-black md:dark:hover:text-blue-500">About Us</a>
+                <a href="/about" className="block py-2 px-3 text-black md:text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-green-400 md:p-0 dark:text-black md:dark:hover:text-blue-500">About Us</a>
               </li>
               <li className="flex items-center">
-                <a href="#" className="block py-2 px-3 text-black md:text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-green-400 md:p-0 dark:text-black md:dark:hover:text-blue-500">Contact Us</a>
+                <a href="/contact" className="block py-2 px-3 text-black md:text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-green-400 md:p-0 dark:text-black md:dark:hover:text-blue-500">Contact Us</a>
               </li>
               <li className="flex items-center">
-                <a href="#" className="block py-2 px-3 text-black md:text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-green-400 md:p-0 dark:text-black md:dark:hover:text-blue-500">Nlearn</a>
+                <a href="#" className="block py-2 px-3 text-black md:text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-green-400 md:p-0 dark:text-black md:dark:hover:text-blue-500">Events</a>
               </li>
               
               <li>
-              <button type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-1.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+              <a href="/Sign-in"><button type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-1.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                 Login
-              </button>
+              </button></a>
 
               </li>
               <li>
     <button type="button" class="flex text-sm bg-gray-800 rounded-full hidden md:flex focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600" id="user-menu-button" aria-expanded="false" data-dropdown-toggle="user-dropdown" data-dropdown-placement="bottom">
         <span class="sr-only"></span>
-        <img class="w-8 h-8 rounded-full" src="src/images/user.svg" alt="user photo"/>
+        <a href="/profile"><img class="w-8 h-8 rounded-full" src="src/images/user.svg" alt="user photo"/></a>
     </button>
 </li>
 
