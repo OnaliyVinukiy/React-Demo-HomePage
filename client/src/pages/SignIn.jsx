@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import {
@@ -6,14 +6,51 @@ import {
   signInSuccess,
   signInFailure,
 } from "../redux/user/userSlice";
+import { PublicClientApplication } from '@azure/msal-browser';
 
 export default function SignIn() {
-  //keep track the all data
   const [formData, setFormData] = useState({});
   const { loading, error } = useSelector((state) => state.user);
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const msalConfig = {
+    auth: {
+      clientId: '7888a1dc-f295-424f-88dc-5028e8e3e2b3',
+      authority: 'https://login.microsoftonline.com/nsbm.ac.lk',
+      redirectUri: 'http://localhost:5173/create-listing',
+    },
+    cache: {
+      cacheLocation: 'localStorage',
+      storeAuthStateInCookie: true,
+    },
+  };
+  const msalInstance = new PublicClientApplication(msalConfig);
 
+
+  useEffect(() => {
+    const initializeMsal = async () => {
+      await msalInstance.initialize(); // Initialize MSAL instance
+    };
+    initializeMsal();
+  }, [msalInstance]);
+
+
+  const handleMicrosoftLogin = async () => {
+    try {
+      dispatch(signInStart());
+  
+      // Ensure MSAL instance is initialized before calling loginPopup
+      await msalInstance.handleRedirectPromise();
+  
+      const loginResponse = await msalInstance.loginPopup();
+  
+      // Handle successful login
+      navigate("/");
+    } catch (error) {
+      dispatch(signInFailure(error.message));
+    }
+  };
+  
   const handleChange = (e) => {
     setFormData({
       ...formData,
@@ -44,9 +81,9 @@ export default function SignIn() {
   };
 
   return (
-    <div className="max-w-lg p-3 mx-auto">
-      <h1 className="text-3xl font-semibold text-center my-7">Sign In</h1>
-      <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+    <div class="max-w-lg p-3 mx-auto mt-16">
+      <h1 class="text-3xl font-semibold text-center my-7">Sign In</h1>
+      <form onSubmit={handleSubmit} class="flex flex-col gap-4">
         {/* <input
           type="text"
           placeholder="Username"
@@ -66,28 +103,40 @@ export default function SignIn() {
         <input
           type="text"
           placeholder="Passsword"
-          className="p-3 border rounded-lg"
+          class="p-3 border rounded-lg"
           id="password"
           onChange={handleChange}
         />
         <button
           disabled={loading}
-          className="p-3 text-white uppercase rounded-lg cursor-pointer bg-slate-700 hover:opacity-95 disabled:opacity-80"
+          class="p-3 text-white uppercase rounded-lg cursor-pointer bg-slate-700 hover:opacity-95 disabled:opacity-80"
         >
           {loading ? (
-            <i className="mr-2 fas fa-spinner fa-spin"></i>
+            <i class="mr-2 fas fa-spinner fa-spin"></i>
           ) : (
             "Sign In"
           )}
         </button>
+        <button
+          type="button"
+          onClick={handleMicrosoftLogin}
+          disabled={loading}
+          class="p-3 text-white uppercase rounded-lg cursor-pointer bg-slate-700 hover:opacity-95 disabled:opacity-80"
+        >
+          {loading ? (
+            <i class="mr-2 fas fa-spinner fa-spin"></i>
+          ) : (
+            "Sign In with Microsoft"
+          )}
+        </button>
       </form>
-      <div className="flex m-5 gap">
+      <div class="flex m-5 gap">
         <p>Do not have an account? </p>
         <Link to={"/sign-up"}>
-          <span className="text-blue-700">Sign Up</span>
+          <span class="text-blue-700">Sign Up</span>
         </Link>
       </div>
-      {error && <p className="text-red-500 ">{error}</p>}
+      {error && <p class="text-red-500 ">{error}</p>}
     </div>
   );
 }
